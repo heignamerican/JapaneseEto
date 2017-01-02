@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+tasks.withType(AbstractCompile)*.options*.encoding = 'UTF-8'
+
+eclipse {
+    project {
+        name = 'Kakizome2017'
+    }
+}
