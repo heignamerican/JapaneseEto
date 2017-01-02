@@ -13,6 +13,6 @@ tasks.withType(AbstractCompile)*.options*.encoding = 'UTF-8'
 
 eclipse {
     project {
-        name = 'Kakizome2017'
+        name = 'JapaneseEto'
     }
 }
