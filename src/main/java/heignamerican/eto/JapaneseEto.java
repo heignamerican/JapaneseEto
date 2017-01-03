@@ -1,5 +1,8 @@
 package heignamerican.eto;
 
+import java.time.chrono.ChronoLocalDate;
+import java.time.temporal.ChronoField;
+
 public enum JapaneseEto {
     甲子(JapaneseEto.Jikkan.甲, JapaneseEto.Juunishi.子), //
     乙丑(JapaneseEto.Jikkan.乙, JapaneseEto.Juunishi.丑), //
@@ -79,6 +82,10 @@ public enum JapaneseEto {
         return JapaneseEto.values()[(year + 56) % 60];
     }
 
+    public static JapaneseEto from(final ChronoLocalDate date) {
+        return fromYear(date.get(ChronoField.YEAR));
+    }
+
     public static enum Juunishi {
         子("ね"), //
         丑("うし"), //
@@ -106,6 +113,10 @@ public enum JapaneseEto {
         public static Juunishi fromYear(final int year) {
             return Juunishi.values()[(year + 8) % 12];
         }
+
+        public static Juunishi from(final ChronoLocalDate date) {
+            return fromYear(date.get(ChronoField.YEAR));
+        }
     }
 
     public static enum Jikkan {
@@ -132,6 +143,10 @@ public enum JapaneseEto {
 
         public static Jikkan fromYear(final int year) {
             return Jikkan.values()[(year + 6) % 10];
+        }
+
+        public static Jikkan from(final ChronoLocalDate date) {
+            return fromYear(date.get(ChronoField.YEAR));
         }
     }
 }
